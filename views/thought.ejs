@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/article.css">
+  <title>Novel Thoughts</title>
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      Glance A Country From A Novel
+    </div>
+  </header>
+  <div class="main_content">
+    <div class="search">
+      <form>
+        <span class="search_title">
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title" placeholder="keywords">
+        </span>
+        <span class="search_country">
+          <label for="country">Country</label>
+          <input type="text" name="country" id="country">
+        </span>
+        <span class="search_sort">
+          <label for="sort">Sort</label>
+          <select name="sort" id="sort">
+            <option value="dog">Title</option>
+            <option value="cat">Newest</option>
+            <option value="cat">Favorite</option>
+          </select>
+        </span>
+        <span class="search_btn">
+          <button name="search" id="search">Search</button>
+        </span>
+      </form>
+    </div>
+    <div class="introduction">
+      <b>I love travelling. I like reading novels.</b>
+      I long for the exotic scenary in those stories, so I may plan a travel to the country. Also, sometimes I would like to know more about a country, so I find a related novel to read. 
+      <b>This bi-directional connection enriches my life.</b> 
+      That's what I want to share with you.
+    </div>
+    <div class="article">
+      <% for (let i = 0; i < 3; i++) {%>
+      <div class="card">
+        <div class="img">
+          <img src="./styles/src.jpeg" width="150px" height="200px">
+        </div>
+        <div class="card_content">
+          <div class="title">This is a title</div>
+          <div class="info">Date read: 2022-02-18   Location: Paris, France</div>
+          <div class="recommend">How strongly I recommend it: 2/10</div>
+          <div class="summary">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </div>
+        </div>
+      </div>
+      <%}%>
+    </div>
+  </div>
+  <footer>
+    <div class="footer">
+      <% const yr = new Date().getFullYear() %>
+      <p>Copyright © <%=yr%> Althea Chu</p>
+    </div>
+  </footer>
+</body>
+
+</html>
