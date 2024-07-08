@@ -23,7 +23,10 @@ app.post("/changeTab", (req, res) => {
   } else {
     res.render("index.ejs");
   }
+});
 
+app.get("/note/1", (req, res) => {
+  res.render("note.ejs");
 });
 
 app.listen(port, () => {
