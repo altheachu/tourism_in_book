@@ -1,34 +1,4 @@
-.header {
-  text-align: center;
-  height: 10vh;
-  line-height: 10vh;
-  background-color: #405D72;
-  color:#F7E7DC;
-  font-size: 40px;
-  font-weight: 500;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-}
-
-.footer {
-  text-align: center;
-  height: 5vh;
-  line-height: 5vh;
-  background-color: #405D72;
-  color:#F7E7DC;
-  font-size: 20px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-}
-
-.footer p {
-  margin: 0px;
-}
-
-.main_content {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  background-color: #F7E7DC;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-}
+@import url("basic.css");
 
 .search {
   grid-column-start: 2;
@@ -92,15 +62,6 @@
 .card{
   margin-bottom: 5vh;
   height: 45vh;
-}
-
-.img {
-  float: left;
-  margin-right: 20px;
-}
-
-.card_content{
-  font-size: 24px;
 }
 
 .title {

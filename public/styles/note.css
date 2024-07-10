@@ -1,127 +1,44 @@
-.header {
+@import url("basic.css");
+
+.leftside {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin-top: 2vh;
   text-align: center;
-  height: 10vh;
-  line-height: 10vh;
-  background-color: #405D72;
-  color:#F7E7DC;
-  font-size: 40px;
-  font-weight: 500;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-}
-
-.footer {
-  text-align: center;
-  height: 5vh;
-  line-height: 5vh;
-  background-color: #405D72;
-  color:#F7E7DC;
-  font-size: 20px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-}
-
-.footer p {
-  margin: 0px;
-}
-
-.main_content {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  background-color: #F7E7DC;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-}
-
-.search {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  text-align: left;
-  font-size: 20px;
-  margin-top: 3vh;
-  margin-bottom: 3vh;
-}
-
-.search_title > input {
-  border-radius: 10px;
-  padding: 3px 0px;
-  font-size: large;
-  width: 350px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-}
-
-.search_country > input {
-  border-radius: 10px;
-  padding: 3px 0px;
-  font-size: large;
-  width: 180px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-}
-
-.search_sort > select {
-  border-radius: 10px;
-  padding: 3px 0px;
-  font-size: large;
-  width: 120px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-}
-
-.search_btn > button {
-  border: 0px;
-  border-radius: 10px;
-  padding: 3px 0px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-  font-size: large;
-  width: 100px;
-  background-color: #405D72;
-  cursor: pointer;
-  color: white;
-}
-
-.introduction {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  font-size: 24px;
-  color: #686D76;
-  margin-bottom: 5vh;
+  font-size: 2em;
 }
 
 .article {
   grid-column-start: 2;
   grid-column-end: 3;
-  margin-bottom: 3vh;
+  margin-top: 5vh;
 }
 
-.card{
+.card {
+  height: auto;
   margin-bottom: 5vh;
-  height: 75vh;
-}
-
-.img {
-  float: left;
-  margin-right: 20px;
-}
-
-.card_content{
-  font-size: 24px;
 }
 
 .title {
-  font-size: 36px;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+  font-size: 1.5em;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
+}
+
+.note_title {
+  font-size: 1.5em;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
 }
 
 .info{
   font-size: 20px;
-  margin-top: 2vh;
+  margin-top: 1vh;
   margin-bottom: 1vh;
 }
 
-.recommend{
-  font-size: 20px;
-  margin-top: 1vh;
-  margin-bottom: 2vh; 
-}
-
 .link{
-  font-size: 28px;
-  margin-top: 2vh;
+  font-size: 1.2em;
+  margin-top: 5vh;
+  margin-bottom: 8vh;
 }
