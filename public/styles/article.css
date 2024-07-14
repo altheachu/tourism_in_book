@@ -4,7 +4,7 @@
   grid-column-start: 2;
   grid-column-end: 3;
   text-align: left;
-  font-size: 20px;
+  font-size: 16px;
   margin-top: 3vh;
   margin-bottom: 3vh;
 }
@@ -12,23 +12,23 @@
 .search_title > input {
   border-radius: 10px;
   padding: 3px 0px;
-  font-size: large;
-  width: 350px;
+  font-size: medium;
+  width: 240px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
 
 .search_country > input {
   border-radius: 10px;
   padding: 3px 0px;
-  font-size: large;
-  width: 180px;
+  font-size: medium;
+  width: 140px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
 
 .search_sort > select {
   border-radius: 10px;
   padding: 3px 0px;
-  font-size: large;
+  font-size: medium;
   width: 120px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
@@ -38,8 +38,8 @@
   border-radius: 10px;
   padding: 3px 0px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-  font-size: large;
-  width: 100px;
+  font-size: medium;
+  width: 80px;
   background-color: #405D72;
   cursor: pointer;
   color: white;
@@ -48,7 +48,7 @@
 .introduction {
   grid-column-start: 2;
   grid-column-end: 3;
-  font-size: 24px;
+  font-size: 20px;
   color: #686D76;
   margin-bottom: 5vh;
 }
@@ -61,28 +61,28 @@
 
 .card{
   margin-bottom: 5vh;
-  height: 45vh;
+  height: 55vh;
 }
 
 .title {
-  font-size: 36px;
+  font-size: 28px;
   margin-top: 1vh;
   margin-bottom: 1vh;
 }
 
 .info{
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 2vh;
   margin-bottom: 1vh;
 }
 
 .recommend{
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 1vh;
   margin-bottom: 2vh; 
 }
 
 .link{
-  font-size: 28px;
+  font-size: 22px;
   margin-top: 2vh;
 }

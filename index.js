@@ -19,26 +19,43 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-app.get("/", async (req, res) => {
-  let codeNameList = []
+async function getCodeNameList(){
+  let codeNameList = [];
   const result = await db.query("SELECT * FROM countries"); 
   result.rows.forEach((row) => {
     let codeNameItem = row.country_code + "|" + row.country_name;
     codeNameList.push(codeNameItem);
   });
+  return codeNameList;
+}
+
+app.get("/", async (req, res) => {
+  let codeNameList = await getCodeNameList();
   res.render("index.ejs", 
     {codeNameList: codeNameList}
   );
 });
 
-app.post("/changeTab", (req, res) => {
+app.post("/changeTab", async (req, res) => {
+  let codeNameList = await getCodeNameList();
   const currentTab = req.body.tab;
-
   if (currentTab === "text"){
     res.render("thought.ejs");
   } else {
-    res.render("index.ejs");
+    res.render("index.ejs", 
+      {codeNameList: codeNameList}
+    );
   }
+});
+
+app.post("/thought", async(req, res) => {
+  // const countryCode = req.params.countryCode;
+  console.log(req.body);
+  // books: isbn, title, location
+  // records: read_date, recommendation, summary, note_no, amazon_url
+  const result = await db.query("SELECT * FROM books");
+  // attach articles obj
+  res.render("thought.ejs");
 });
 
 app.get("/note/1", (req, res) => {
@@ -52,3 +69,4 @@ app.get("/back", (req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
 });
+

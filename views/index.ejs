@@ -21,7 +21,6 @@
       version="1.1" viewBox="0 0 1008 651">
       <path id="AE" title="United Arab Emirates"
         d="M619.874,393.722L620.373,393.573L620.477,394.411L622.671,393.93L624.99,394.009L626.684,394.1L628.604,392.028L630.695,390.054L632.467,388.146L633.001,389.202L633.382,391.639L631.949,391.651L631.72,393.648L632.216,394.073L630.947,394.674L630.939,395.919L630.122,397.175L630.049,398.394L629.484,399.032L621.056,397.508L619.981,394.428z" />
-
       <path id="AF" title="Afghanistan"
         d="M646.879,356.901L649.738,358.201L651.853,357.745L652.438,356.188L654.651,355.669L656.231,354.617L656.791,351.832L659.154,351.154L659.594,349.902L660.917,350.843L661.762,350.952L663.323,350.975L665.438,351.716L666.295,352.143L668.324,351.017L669.27,351.694L670.174,350.085L671.85,350.159L672.281,349.641L672.578,348.213L673.785,346.975L675.303,347.785L674.998,348.869L675.846,349.038L675.585,351.994L676.694,353.137L677.672,352.404L678.916,352.057L680.663,350.486L682.594,350.745L685.486,350.751L685.985,351.758L684.353,352.15L682.928,352.795L679.71,353.2L676.699,353.931L675.063,355.439L675.725,356.899L676.046,358.603L674.649,360.033L674.766,361.335L673.995,362.549L671.328,362.444L672.43,364.663L670.646,365.507L669.455,367.511L669.609,369.491L668.514,370.415L667.477,370.109L665.334,370.537L665.027,371.451L662.939,371.446L661.377,373.289L661.278,376.039L657.635,377.374L655.682,377.092L655.114,377.794L653.438,377.386L650.634,377.865L645.936,376.228L648.479,373.298L648.249,371.202L646.125,370.65L645.905,368.565L644.987,365.921L646.187,364.094L644.966,363.599L645.736,361.148z" />
       <path id="AL" title="Albania"
@@ -378,8 +377,6 @@
     Country:
     <span id="hoverCountry"></span> 
   </h2>
-  <script>
-  </script>
 </body>
 
 </html>
@@ -392,12 +389,12 @@ elements.forEach((element)=>{
   element.addEventListener("touchmove",  showCountryName);
   element.addEventListener("mouseover", showCountryName);
   element.addEventListener("mouseout", hideCountryName);
+  element.addEventListener("click", searchBooksByCountry);
 });
 
 function showCountryName(event) {
   const countryCode = event.target.getAttribute("id");
   let codeNameItem = codeNameList.filter((item) => item.substr(0,2)===countryCode);
-  console.log(codeNameItem);
   let countryNameParts = codeNameItem[0].split("|");
   document.getElementById("hoverCountry").innerHTML = countryNameParts[1];
   document.getElementById(countryCode).style.fill = "teal";
@@ -409,4 +406,38 @@ function hideCountryName(event) {
   document.getElementById(countryCode).style.fill = "#383d46";
 }
 
+function searchBooksByCountry(event) {
+  const countryCode = event.target.getAttribute("id");
+  const formData = {
+    countryCode: countryCode
+  };
+  // 执行提交操作
+  submitCountryForm(formData);
+}
+
+function submitCountryForm(formData) {
+  // 创建一个隐藏的表单元素
+  const form = document.createElement('form');
+  // 使其隐藏，但仍然可以提交
+  form.style.display = 'none'; 
+
+  // 设置表单属性
+  form.method = 'POST';
+  form.action = '/thought';
+
+  // 添加表单字段
+  for (const key in formData) {
+    if (formData.hasOwnProperty(key)) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = formData[key];
+      form.appendChild(input);
+    }
+  }
+  // 将表单添加到文档中
+  document.body.appendChild(form);
+  // 提交表单
+  form.submit();
+}
 </script>
