@@ -28,6 +28,7 @@
         <span class="search_sort">
           <label for="sort">Sort</label>
           <select name="sort" id="sort">
+            <!--TODO-->
             <option value="dog">Title</option>
             <option value="cat">Newest</option>
             <option value="cat">Favorite</option>
@@ -45,24 +46,29 @@
       That's what I would like to share with you here.
     </div>
     <div class="article">
-      <% for (let i = 0; i < 3; i++) {%>
-      <div class="card">
+      <% if (locals.articles){
+        for (let i = 0; i < articles.length; i++){
+      %>
+        <div class="card"> 
         <div class="img">
           <img src="./styles/src.jpeg" width="150px" height="200px">
         </div>
         <div class="card_content">
-          <div class="title">This is a title</div>
-          <div class="info">Date read: 2022-02-18   Location: Paris, France</div>
-          <div class="recommend">How strongly I recommend it: 2/10</div>
+          <div class="title"><%=articles[i].title%></div>
+          <div class="info">
+            Date read: <%=articles[i].read_date%>   Location: <%=articles[i].area%>, <%=articles[i].country_name%>
+          </div>
+          <div class="recommend">How strongly I recommend it: <%=articles[i].recommendation%>/10</div>
           <div class="summary">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            <%=articles[i].summary%>
           </div>
           <div class="link">
-            <a href="/note/1">Read my notes</a>, or go to the Amazon page for details and reviews.
+            <a href="/note/1">Read my notes</a>, or go to the <a href="<%=articles[i].amazon_url%>">Amazon page</a> for details and reviews.
           </div>
         </div>
-      </div>
-      <%}%>
+        </div>
+      <%}
+      }%>
     </div>
   </div>
   <footer>

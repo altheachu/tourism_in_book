@@ -49,13 +49,16 @@ app.post("/changeTab", async (req, res) => {
 });
 
 app.post("/thought", async(req, res) => {
-  // const countryCode = req.params.countryCode;
-  console.log(req.body);
-  // books: isbn, title, location
-  // records: read_date, recommendation, summary, note_no, amazon_url
-  const result = await db.query("SELECT * FROM books");
-  // attach articles obj
-  res.render("thought.ejs");
+  const countryCode = req.body.countryCode;
+  const querySql = "select * from records r inner join " +  
+  "(select b.id, b.isbn, b.title, c.country_name, b.area from books b " + 
+  "inner join countries c on b.country = c.country_code where b.country = $1) t " +
+  "on t.id = r.book_id order by t.title";
+  const result = await db.query(querySql, [countryCode]);
+  const rtnObj = {
+    articles: result.rows,
+  }
+  res.render("thought.ejs", rtnObj);
 });
 
 app.get("/note/1", (req, res) => {
