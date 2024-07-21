@@ -28,10 +28,15 @@
         <span class="search_sort">
           <label for="sort">Sort</label>
           <select name="sort" id="sort">
-            <!--TODO-->
-            <option value="dog">Title</option>
-            <option value="cat">Newest</option>
-            <option value="cat">Favorite</option>
+
+            <%if(locals.bookSortOptions){
+              for(let i= 0; i < bookSortOptions.length; i++){
+              %>
+              <option value="<%=bookSortOptions[i].value%>">
+                <%=bookSortOptions[i].display%>
+              </option>
+              <%}%>
+            <%}%>
           </select>
         </span>
         <span class="search_btn">
@@ -51,12 +56,16 @@
       %>
         <div class="card"> 
         <div class="img">
-          <img src="./styles/src.jpeg" width="150px" height="200px">
+          <img src="<%=articles[i].img_url%>" width="150px" height="200px">
         </div>
         <div class="card_content">
           <div class="title"><%=articles[i].title%></div>
           <div class="info">
-            Date read: <%=articles[i].read_date%>   Location: <%=articles[i].area%>, <%=articles[i].country_name%>
+            <span>Date read:</span>
+            <span><%=articles[i].read_date_str%></span>
+            <span class="empty_span"></span>
+            <span>Location:</span>
+            <span><%=articles[i].location%></span>
           </div>
           <div class="recommend">How strongly I recommend it: <%=articles[i].recommendation%>/10</div>
           <div class="summary">
