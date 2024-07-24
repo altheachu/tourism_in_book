@@ -182,12 +182,31 @@ app.post("/searchArticles", async (req, res) => {
   res.render("thought.ejs", rtnObj);
 });
 
-app.get("/note/1", (req, res) => {
+app.get("/note/:id", (req, res) => {
+  const note_id = req.params.id;
   res.render("note.ejs");
 });
 
-app.get("/back", (req, res) => {
-  res.render("thought.ejs");
+app.get("/searchArticles", async (req, res) => {
+  try {
+    const bookSortOptions = await getBookSortOptions();
+    const countryNames = await getCountryNameList();
+    const querySql = "select id, book_id, read_date, recommendation, summary, note_id, " + 
+    "amazon_url, isbn, $1||isbn||'-'||$2||'.jpg' as img_url, title, location, " + 
+    "TO_CHAR(read_date, 'YYYY-MM-DD') as read_date_str from records r inner join " +
+    "(select b.id as tmp_book_id, b.isbn, b.title, c.country_name || ', ' || b.area as location " +
+    "from books b inner join countries c on b.country = c.country_code) t " + 
+    "on t.tmp_book_id = r.book_id order by t.title";
+    const result = await db.query(querySql, [API_URL,'M']);
+    const rtnObj = {
+      articles: result.rows,
+      bookSortOptions: bookSortOptions,
+      countryNames: countryNames,
+    }
+    res.render("thought.ejs", rtnObj);
+  } catch (error){
+    console.log(error);
+  }
 });
 
 app.listen(port, () => {

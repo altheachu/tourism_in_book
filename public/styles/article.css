@@ -1,6 +1,8 @@
 @import url("basic.css");
 
 .search {
+  grid-row-start: 1;
+  grid-row-end: 2;
   grid-column-start: 2;
   grid-column-end: 3;
   text-align: left;
@@ -101,4 +103,17 @@
 
 .empty_span{
   margin-left: 3px;
+}
+
+.leftside {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  text-align: center;
+  font-size: 2em;
+}
+
+.leftside > a {
+  line-height: 90vh;
 }
