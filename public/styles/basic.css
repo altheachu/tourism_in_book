@@ -32,6 +32,7 @@ body {
   grid-template-columns: 1fr 2fr 1fr;
   background-color: #F7E7DC;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+  min-height: 35vw;
 }
 
 .img {

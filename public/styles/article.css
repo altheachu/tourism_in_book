@@ -61,7 +61,19 @@
 
 .card{
   margin-bottom: 5vh;
-  height: 55vh;
+  height: 48vh;
+}
+
+.no_article{
+  margin-bottom: 5vh;
+  height: 48vh;
+}
+
+.empty_wording{
+  text-align: center;
+  line-height: 48vh;
+  color: rgba(255, 128, 0, 0.938);
+  font-size: 24px;
 }
 
 .title {

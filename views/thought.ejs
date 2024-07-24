@@ -16,19 +16,25 @@
   </header>
   <div class="main_content">
     <div class="search">
-      <form>
+      <form action="/searchArticles" method="POST">
         <span class="search_title">
           <label for="title">Title</label>
           <input type="text" name="title" id="title" placeholder="keywords">
         </span>
         <span class="search_country">
           <label for="country">Country</label>
-          <input type="text" name="country" id="country">
+          <input list="countries" type="text" name="country" placeholder="<%= locals.error ? error :  'Keywords'%>">  
+          <%if(locals.countryNames){%>
+            <datalist id="countries">
+              <%for(let i=0; i< countryNames.length; i++) {%>
+                <option value="<%=countryNames[i]%>"></option>
+              <%}%>  
+            </datalist>
+          <%}%>
         </span>
         <span class="search_sort">
           <label for="sort">Sort</label>
           <select name="sort" id="sort">
-
             <%if(locals.bookSortOptions){
               for(let i= 0; i < bookSortOptions.length; i++){
               %>
@@ -51,7 +57,7 @@
       That's what I would like to share with you here.
     </div>
     <div class="article">
-      <% if (locals.articles){
+      <% if (locals.articles && articles.length > 0){
         for (let i = 0; i < articles.length; i++){
       %>
         <div class="card"> 
@@ -72,12 +78,16 @@
             <%=articles[i].summary%>
           </div>
           <div class="link">
-            <a href="/note/1">Read my notes</a>, or go to the <a href="<%=articles[i].amazon_url%>">Amazon page</a> for details and reviews.
+            <a href="/note/1">Read my notes</a>, or go to the <a target="_blank" href="<%=articles[i].amazon_url%>">Amazon page</a> for details and reviews.
           </div>
         </div>
         </div>
       <%}
-      }%>
+      } else {%>
+        <div class="no_article">
+          <div class="empty_wording">Empty Result</div>
+        </div>
+      <%}%>
     </div>
   </div>
   <footer>
