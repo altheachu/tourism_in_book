@@ -76,7 +76,7 @@
       %>
         <div class="card"> 
         <div class="img">
-          <img src="<%=articles[i].img_url%>" width="150px" height="200px">
+          <img class="img_obj" src="<%=articles[i].img_url%>" width="150px" height="200px">
         </div>
         <div class="card_content">
           <div class="title"><%=articles[i].title%></div>
@@ -87,7 +87,10 @@
             <span>Location:</span>
             <span><%=articles[i].location%></span>
           </div>
-          <div class="recommend">How strongly I recommend it: <%=articles[i].recommendation%>/10</div>
+          <div class="recommend">
+            <span>How strongly I recommend it:</span>
+            <span><%=articles[i].recommendation%>/10</span>
+          </div>
           <div class="summary">
             <%=articles[i].summary%>
           </div>

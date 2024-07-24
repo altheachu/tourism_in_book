@@ -30,27 +30,42 @@
       </a>
     </div>
     <div class="article">
+      <%if(locals.article){%>
       <div class="card">
         <div class="img">
-          <img src="../styles/src.jpeg" width="200px" height="300px">
+          <img src="<%=article.img_url%>" width="150px" height="200px">
         </div>
         <div class="card_content">
-          <div class="title">Harry Potter and the Philosopher's Stone</div>
-          <div class="info">ISBN: 0806541229</div>
-          <div class="info">Date read: 2023-08-02</div>
-          <div class="info">How strongly I recommend it: 2/10</div>
+          <div class="title"><%=article.title%></div>
+          <div class="info">
+            <span>ISBN:</span>
+            <span><%=article.isbn%></span>
+          </div>
+          <div class="info">
+            <span>Date read:</span>
+            <span><%=article.read_date_str%></span>
+          </div>
+          <div class="info">
+            <span>How strongly I recommend it:</span>
+            <span><%=article.recommendation%>/10</span>
+          </div>
           <div class="link">
-            Go to the <a href="/note/1">Amazon page</a> for details and reviews.
+            Go to the <a target="_blank" href="<%=article.amazon_url%>">Amazon page</a> for details and reviews.
           </div>
           <div class="summary">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            <%=article.summary%>
           </div>
           <div class="note_title">My Notes</div>
           <div class="note">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            <%=article.note%>
           </div>
         </div>
       </div>
+      <%} else {%>
+        <div class="no_item">
+          Find No Note
+        </div>
+      <%}%>  
     </div>
   </div>
   <footer>

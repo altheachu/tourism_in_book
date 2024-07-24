@@ -14,7 +14,7 @@
 .title {
   font-size: 1.5em;
   margin-top: 2vh;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
 }
 
 .note_title {
@@ -31,8 +31,8 @@
 
 .link{
   font-size: 1.2em;
-  margin-top: 5vh;
-  margin-bottom: 8vh;
+  margin-top: 3vh;
+  margin-bottom: 6vh;
 }
 
 .leftside {
@@ -45,4 +45,14 @@
 
 .leftside > a {
   line-height: 90vh;
+}
+
+.no_item{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  margin-top: 2vh;
+  text-align: center;
+  font-size: 2em;
+  line-height: 65vh;
+  color: #686D76;
 }

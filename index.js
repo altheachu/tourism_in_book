@@ -182,9 +182,21 @@ app.post("/searchArticles", async (req, res) => {
   res.render("thought.ejs", rtnObj);
 });
 
-app.get("/note/:id", (req, res) => {
+app.get("/note/:id", async (req, res) => {
   const note_id = req.params.id;
-  res.render("note.ejs");
+  const querySql = "select *, $1||isbn||'-'||$2||'.jpg' as img_url from books b inner join " + 
+  "(select n.content as note, r.book_id, TO_CHAR(r.read_date, 'YYYY-MM-DD') as read_date_str , " + 
+  "r.recommendation, r.summary, r.amazon_url from notes n inner join records r " + 
+  "on n.id = r.note_id where n.id = $3) t on b.id = t.book_id";
+  const result = await db.query(querySql, [API_URL,'M', note_id]);
+  let article;
+  if(result.rows.length > 0){
+    article = result.rows[0];
+  }
+  const rtnObj = {
+    article: article,
+  }
+  res.render("note.ejs", rtnObj);
 });
 
 app.get("/searchArticles", async (req, res) => {
