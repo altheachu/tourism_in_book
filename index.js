@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
+import path from "path";
 import pg from "pg";
 
 const app = express();
@@ -216,6 +217,29 @@ app.get("/searchArticles", async (req, res) => {
       countryNames: countryNames,
     }
     res.render("thought.ejs", rtnObj);
+  } catch (error){
+    console.log(error);
+  }
+});
+
+app.get("/test", async (req, res) => {
+  try {
+    console.log('test');
+    // const imagePath = path.resolve("C:/html_side_project/tourism_in_book", 'public', 'imgs', 'src.jpeg');
+    // res.sendFile(imagePath);
+    try {
+      console.log('test');
+      // 下載外部圖片
+      const response = await axios.get("https://sive.rs/images/book/NegotiateAnything.webp", { responseType: 'arraybuffer' });
+      const imageBuffer = Buffer.from(response.data, 'binary');
+      
+      // 設置回應的Content-Type為圖片的MIME類型
+      res.set('Content-Type', response.headers['content-type']);
+      res.send(imageBuffer);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send('Error occurred');
+    }
   } catch (error){
     console.log(error);
   }
